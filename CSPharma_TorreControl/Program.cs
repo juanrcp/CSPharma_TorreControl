@@ -1,11 +1,21 @@
+using EntityBasicoDAL.cspharma_informacional;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileSystemGlobbing.Internal.Patterns;
+
 var builder = WebApplication.CreateBuilder(args);
 
-//Añadimos los servicios que nos interesa al constructor
+//Esto lo añadimos para que reconozla los @. 
+builder.Services.AddRazorPages();
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<entityBasicoContext>(
-    o => o.UseNpgsql(builder.Configuration.GetConnectionString("EFCConexion"))
-    );
+
+//AÑADIMOS EL SERVICIO PARA MOSTAR LA VISTA
+builder.Services.AddEntityFrameworkNpgsql()
+    .AddDbContext<CspharmaInformacionalContext>(options =>
+    {
+        options.UseNpgsql(builder.Configuration.GetConnectionString("EFCConexion"));
+    });
 
 var app = builder.Build();
 
