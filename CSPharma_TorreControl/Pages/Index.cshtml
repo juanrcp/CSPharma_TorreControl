@@ -1,38 +1,4 @@
 ﻿@page
-<<<<<<< HEAD
-@model IEnumerable<CSPharma_TorreControl.AccesoViews.AccesoViewModel>
-<!--IndexModel-->
-@{
-    ViewData["Title"] = "CSPharma_TorreControl";
-}
-
-<div class="text-center">
-    <h1 class="display-4">REGISTRO DE PEDIDOS ACTUALES</h1>
-</div>
-<div class="base_datos">
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>CODIGO DE PEDIDO</th>
-                <th>CODIGO DE LINEA</th>
-                <th>FECHA</th>
-            </tr>
-
-            <!--Con este foreach mostraremos la consulta-->
-            @foreach (var pedido in Model)
-            {
-                <tr>
-                    <td>@pedido.id</td>
-                    <td>@pedido.cod_pedido</td>
-                    <td>@pedido.cod_linea</td>
-                    <td>@pedido.fecha</td>
-                </tr>
-            }
-        </thead>
-    </table>
-</div>
-=======
 @model CSPharma_TorreControl.Pages.IndexModel
 
 @{
@@ -104,4 +70,3 @@
 }
     </tbody>
 </table>
->>>>>>> e5de13ec8660ebe848d93f77819343ba0ceedf23
