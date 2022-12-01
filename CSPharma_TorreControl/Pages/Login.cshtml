@@ -1,0 +1,50 @@
+﻿@page
+<!--Añadimos asistente de etiquetas-->
+@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+<!--Asignamos el model correspondiente a la clase-->
+@model CSPharma_TorreControl.Pages.LoginModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container" style="text-align:center;">
+
+
+    <!--Establecemos formulario con metodo post para proteger la infromacion en la URL-->
+    <form method="post" class="col-xl-3">
+        <h3 style="color: #5dc1b9;">
+            <font face="Verdana">PAGINA DE REGISTRO</font>
+        </h3>
+
+        <label for="CodEmpleado" class="form-label">Codigo de Empleado:</label>
+        <input type="text" class="form-control" name="CodEmpleado" maxlength="7">
+
+        <label for="ClaveEmpleado" class="form-label">Clave de Empleado:</label>
+        <input type="password" class="form-control" name="ClaveEmpleado">
+
+        <!--Añadimos atributo asp-page-handler complemento de asp-page que genera direcciones URL que envían a cada uno de los métodos de controlador definidos por una página.
+            Es decir envia los datos al metodo (en este caso OnPost) que le hemos añadido Submit. 
+        -->
+        <button type="submit" value="Submit" asp-page-handler="Submit">Enviar</button>
+        <br />
+        <br />
+        <a style="color" asp-area="" asp-page="/AltaEmpleado">Alta Nuevos Empleados</a>
+
+        <br />
+        <br />
+        <!--Mostramos errores y otros avisos-->
+        @if (Model.Mensajes != null)
+        {
+            <div id="errores" class="col-xl-13">
+                <h3>¡¡ATENCIÓN!!</h3>
+
+                @foreach (var mensaje in @Model.Mensajes)
+                {
+                    <p>@mensaje</p>
+                }
+            </div>
+        }
+
+    </form>
+</div>

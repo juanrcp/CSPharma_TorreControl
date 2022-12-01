@@ -15,6 +15,8 @@ public partial class CspharmaInformacionalContext : DbContext
     {
     }
 
+    public virtual DbSet<DlkCatAccEmpleado> DlkCatAccEmpleados { get; set; }
+
     public virtual DbSet<TdcCatEstadosDevolucionPedido> TdcCatEstadosDevolucionPedidos { get; set; }
 
     public virtual DbSet<TdcCatEstadosEnvioPedido> TdcCatEstadosEnvioPedidos { get; set; }
@@ -31,6 +33,32 @@ public partial class CspharmaInformacionalContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<DlkCatAccEmpleado>(entity =>
+        {
+            entity.HasKey(e => e.CodEmpleado).HasName("dlk_cat_acc_empleado_pkey");
+
+            entity.ToTable("dlk_cat_acc_empleado", "dlk_informacional", tb => tb.HasComment("Tabla de registros de usuarios/empleados con md_uuid (metadatos), md_date (fecha de inserción), id (único y autoincrement), cod_empleado (nombre de usuario/empleado de máximo 7 caracteres y primary key), clave_empleado (contraseña con mínimo 8 caracteres) y nivel_acceso_empleado (rol que por defecto será 2)."));
+
+            entity.Property(e => e.CodEmpleado)
+                .HasMaxLength(7)
+                .HasColumnName("cod_empleado");
+            entity.Property(e => e.ClaveEmpleado)
+                .HasColumnType("character varying")
+                .HasColumnName("clave_empleado");
+            entity.Property(e => e.Id)
+                .ValueGeneratedOnAdd()
+                .HasColumnName("id");
+            entity.Property(e => e.MdDate)
+                .HasColumnType("timestamp without time zone")
+                .HasColumnName("md_date");
+            entity.Property(e => e.MdUuid)
+                .HasColumnType("character varying")
+                .HasColumnName("md_uuid");
+            entity.Property(e => e.NivelAccesoEmpleado)
+                .HasDefaultValueSql("2")
+                .HasColumnName("nivel_acceso_empleado");
+        });
+
         modelBuilder.Entity<TdcCatEstadosDevolucionPedido>(entity =>
         {
             entity.HasKey(e => e.CodEstadoDevolucion).HasName("tdc_cat_estados_devolucion_pedido_pkey");

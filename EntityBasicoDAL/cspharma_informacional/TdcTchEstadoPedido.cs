@@ -27,7 +27,5 @@ public partial class TdcTchEstadoPedido
 
     public virtual TdcCatEstadosPagoPedido? CodEstadoPagoNavigation { get; set; }
 
-    //Tenemos que poner opcional este campo. 
-    public virtual TdcCatLineasDistribucion? CodLineaNavigation { get; set; } = null!;
-
+    public virtual TdcCatLineasDistribucion CodLineaNavigation { get; set; } = null!;
 }

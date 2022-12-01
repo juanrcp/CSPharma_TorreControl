@@ -1,0 +1,41 @@
+﻿@page
+<!--Añadimos asistente de etiquetas-->
+@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+<!--Asignamos el model correspondiente a la clase-->
+@model CSPharma_TorreControl.Pages.AltaEmpleadoModel
+@{
+    ViewData["Title"] = "AltaEmpleado";
+}
+
+<div class="container" style="color: #5dc1b9; text-align:center;">
+
+    <form method="post" class="col-xl-3">
+        <h3>ALTA EMPLEADO</h3>
+
+        <label for="CodEmpleado" class="form-label">Nuevo Codigo de Empleado:</label>
+        <input type="text" class="form-control" name="CodEmpleado" maxlength="7">
+
+        <label for="ClaveEmpleado" class="form-label">Clave de Empleado:</label>
+        <input type="password" class="form-control" name="ClaveEmpleado">
+
+        <label for="ConfirmarClave" class="form-label">Confirmar Clave de Empleado:</label>
+        <input type="password" class="form-control" name="ConfirmarClave">
+
+        <button type="submit" value="Submit" asp-page-handler="Submit">Dar de Alta</button>
+
+        <br />
+        <br />
+        <!--Mostramos errores y otros avisos-->
+        @if (Model.Mensajes != null)
+        {
+            <div id="errores">
+                <h3>¡¡ATENCIÓN!!</h3>
+
+                @foreach (var mensaje in @Model.Mensajes)
+                {
+                    <p>@mensaje</p>
+                }
+            </div>
+        }
+    </form>
+</div>

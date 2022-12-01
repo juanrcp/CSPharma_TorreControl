@@ -14,5 +14,48 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: #ffffff;
+    color: #090909;
+}
+
+nav {
+    background-color: #5ccb5f;
+    color: #ffffff;
+}
+
+button {
+    border-color: #5dc1b9;
+    background-color: #ffffff;
+    margin-top: 5%;
+    color: #5dc1b9;
+    border: 2px solid;
+    border-radius: 6px;
+}
+
+form {
+    color: #5dc1b9;
+    text-align: center;
+}
+
+.form-control {
+    border-color: #5dc1b9;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.form-label {
+    color: #5dc1b9;
+    padding-top: 5%;
+}
+
+.col-xl-3{
+    margin-left: 30%;
+}
+
+#errores {
+        text-align: center;
+        color: black;
+        background-color: #fed353;
+
 }

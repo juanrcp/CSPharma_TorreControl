@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSPharma_TorreControl", "CSPharma_TorreControl\CSPharma_TorreControl.csproj", "{50B578CE-9B8C-451C-AFF3-38F100203130}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSPharma_TorreControl", "CSPharma_TorreControl\CSPharma_TorreControl.csproj", "{50B578CE-9B8C-451C-AFF3-38F100203130}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityBasicoDAL", "EntityBasicoDAL\EntityBasicoDAL.csproj", "{72A189AC-6CBC-4505-998F-5C9E5D2ADCE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityBasicoDAL", "EntityBasicoDAL\EntityBasicoDAL.csproj", "{72A189AC-6CBC-4505-998F-5C9E5D2ADCE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
